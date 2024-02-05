@@ -1,0 +1,104 @@
+sNews 1.80 Reborn - Test drive
+
+Updates - for final version
+-------------------------
+*** 14 May ***
+- Javascript rewrite focus and verified by lint (Noje + Gulp + gulp-jshint)
+- Javascript compressed (compress.js) same as admin.js
+- [update_articles] fixed
+- [value] removed, not used
+- variable: artorder fixed on articles
+
+
+*** 27 May ***
+Thanks to skiane - issue/commits/pull requests
+- [update_articles] - fixed support for sqlite and mysql
+- [site] - add support for https
+- [showAdmAddons] - Fix add name in admin section
+
+*** 29 May ***
+- remove block "# DELETE ARTICLES FROM SUB-CATEGORY" in admin.php not used
+- improved lisibility by skiane and Rui
+- title replaced by seftitleby @RobsWebsites - fixed by skiane
+
+*** 30 May ***
+- [search] - Skiane report "fixed number of search result (uninitialized var)"
+- With this Pull I found an issue for non existing query 
+- Repport and issue fixed - Now is working for mysql and sqlite
+- [login] - modify to html code
+- [comment] - form modification for html code
+- [html_input] - moved to admin.php
+- [new_comments] - have a link issue
+- delete comments when user delete a article
+- css add ".contactbox" in same style (commentsbox)
+
+*** 01 June ***
+- [update_articles] modify db()->fetch() to db()->exec(...)
+- [checkUserPass] some change
+- empty limitation with php by skiane
+
+*** 12 June ***
+- [cleanXSS] - function modified
+- [transformTags] - New function - to transform tags
+- [clean_link] - New function - to convert link to BBCode Link
+- [restore_link] - New function - convert BBCode link back to html
+- [cleanComment] - New function for comments (convert malicious code to text)
+- [search] - now accept multi-queries like "snews, color" generates multi-results. 
+It is different if you search for "snews color", in this case both words must match for search
+- [logout] - destroy session,create new and generate new session_id
+- [new_comments] - modify query for better
+- [filterTags] removed
+- [XSS_cache] removed
+- filter_var and filter_input will be WIP (work in progress)
+
+*** 17 June *** by skiane
+- Fixed a bug in Addons list that caused a bug when more than 1 addon is loaded
+- removed (some) unused variables
+
+*** 23 June *** by skiane
+[printArticleDetails] New function
+- Factorize code-> [admin_articles]
+
+*** 02 July *** by skiane & Rui
+- Javascript add more dependancy for def_subcat - Extra now show "Show in Subcategories" only Categorie for all or for one category
+- All queries review
+- [buttons] - img,link,include,func fixed remove text from javascript side and put in admin.php
+- [extra] Not working correctly - fixed
+- Add global $_subID to get category from sub-cats
+- remove white spaces, cosmetic
+- [readAddons] simplified & fixed (missing global $l to show Text from addons)
+- [search] - fixed missing quotes
+- [articles] - Better syntax with bool expression
+- simplified language file loading code - change include langfile to require.
+
+*** 03 July *** by Skiane & Rui
+- removed unused var (center, rss-feeds, menu_articles && center)
+- move global $l from readAddons to addon (hello)
+- processing - admin_article - fixed - Bug in article deletion with extra
+- processing - admin_article - fixed - when change page to extra/article then reset extra pointer to this page
+
+*** 10 July *** by Skiane
+- Introduced "routes" to map SEFs to php functions
+
+*** 21 July *** by Skiane and Rui
+- fix:14 July (admin)
+- No MathCaptcha For Admin
+- Addroute - Undefined constant - fixed converted to string
+- [clean_mysql] moved to admin.php
+- Info-tags - moved - user must change if want in config.php
+- [logout] moved to admin.php
+- [strip] moved to rss_feeds.php (addons)
+- Mysql Database change collation to UTF-8 and type for InnoDB in new fresh database
+- [html_input] moved again to snews.php (hello addon need it)
+- [readAddons] rewrite to accept auto-addons (auto_addon) and addons as controllers
+- [breadcrumbs] fixed for addons
+- ADD option "page_list" in config for user can choose order
+- [pages] changed to support order page list
+
+*** 22 July *** By Rui
+- Refine switch from [center]
+
+*** 24 July *** By Skiane and Rui
+- SET sitemap, contact and archive as addon
+- Removed temp from unset var
+- [center] move some code to admin
